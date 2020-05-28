@@ -1,9 +1,6 @@
 # Respueestaa Desafio 3 
-<<<<<<< HEAD
-#Prueba3
-=======
+#Prueba4
 
->>>>>>> c8237cb173203806dd1b3dcd2150ca6e39915a42
 Este proyecto expone un API REST se conecta a otra API REST y entrega la siguiente información:
 
 NOTA DE LA SOLUCION: Técnicamente para el conector a la api-periodos debiese haberse creado con un jar distinto que haga de conector, sin embargo, este fue programado simplemente
