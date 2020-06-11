@@ -6,7 +6,7 @@ Mula
 NOTA DE LA SOLUCION: Técnicamente para el conector a la api-periodos debiese haberse creado con un jar distinto que haga de conector, sin embargo, este fue programado simplemente
 en un package distinto para mantener sencilla la prueba.
 
-NOTA 1: Como pre-requisito se debe estar ejecutando la API api-periodos-1.0.0. 
+NOTA 11: Como pre-requisito se debe estar ejecutando la API api-periodos-1.0.0. 
 NOTA 2: Se debe configurar en el archivo application.properties, ubicado en los resources del proyecto SpringBootRestApiTestPrevired los siguientes configs (Vienen configurados):
 
 api-periodos-server=http://localhost:
