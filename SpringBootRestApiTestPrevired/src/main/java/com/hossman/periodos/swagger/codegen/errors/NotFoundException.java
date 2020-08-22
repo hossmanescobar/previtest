@@ -1,4 +1,4 @@
-package com.hossman.periodos.swagger.codegen.api;
+package com.hossman.periodos.swagger.codegen.errors;
 
 import com.hossman.periodos.swagger.codegen.exception.ApiException;
 

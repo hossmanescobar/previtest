@@ -11,5 +11,9 @@ public class ClienteRestException extends Exception {
 	public ClienteRestException (String msg) {
 		super(msg);
 	}
+	public ClienteRestException (String msg, Throwable t) {
+		super(msg,t);
+	}
 }
+
 

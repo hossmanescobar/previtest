@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: SpringBootRestApiTestPrevired
 Implementation-Version: 1.0.0
-Built-By: Administrador
+Built-By: LabDev
 Implementation-Vendor-Id: com.hossman.periodos
 Build-Jdk: 1.8.0_251
 Implementation-URL: http://projects.spring.io/spring-boot/SpringBootRe

@@ -1,5 +1,6 @@
 package com.hossman.periodos.swagger.codegen.exception;
 
+/* Se manejan excpetions a nivel de capa */
 
 public class ApiException extends Exception {
     /**
@@ -13,6 +14,11 @@ public class ApiException extends Exception {
         super(msg);
         this.setCode(code);
     }
+   
+	public ApiException (int code,String msg, Throwable t) {
+		super(msg,t);
+	}
+	
 	public int getCode() {
 		return code;
 	}

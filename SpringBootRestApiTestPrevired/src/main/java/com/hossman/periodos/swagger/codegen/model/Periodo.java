@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 
+
 /**
  * Periodo
  */
@@ -112,9 +113,7 @@ public class Periodo   {
    * @return fechas
   **/
   @ApiModelProperty(value = "")
-
   @Valid
-
   public List<LocalDate> getFechas() {
     return fechas;
   }

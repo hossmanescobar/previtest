@@ -8,6 +8,9 @@ import java.util.stream.Stream;
 
 public class FechaUtil {
 	
+	private FechaUtil () {
+		
+	}
 /***
  *  @author Hossman Escobar (H.E)
  *  @param fechaInicio = fecha de inicio para generar fechas

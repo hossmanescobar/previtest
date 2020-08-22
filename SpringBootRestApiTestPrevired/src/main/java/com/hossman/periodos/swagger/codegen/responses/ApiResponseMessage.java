@@ -1,4 +1,4 @@
-package com.hossman.periodos.swagger.codegen.api;
+package com.hossman.periodos.swagger.codegen.responses;
 
 import javax.xml.bind.annotation.XmlTransient;
 

@@ -1,4 +1,4 @@
-package com.hossman.periodos.swagger.codegen.api;
+package com.hossman.periodos.swagger.codegen.config;
 
 import java.io.IOException;
 

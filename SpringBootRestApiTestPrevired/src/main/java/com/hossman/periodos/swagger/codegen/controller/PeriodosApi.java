@@ -3,8 +3,9 @@
  * https://github.com/swagger-api/swagger-codegen
  * Do not edit the class manually.
  */
-package com.hossman.periodos.swagger.codegen.api;
+package com.hossman.periodos.swagger.codegen.controller;
 
+import com.hossman.periodos.swagger.codegen.exception.ApiException;
 import com.hossman.periodos.swagger.codegen.model.Periodo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;
@@ -19,9 +20,10 @@ import java.io.IOException;
 import java.util.Optional;
 
 @Api(value = "api", description = "the api API")
-public interface ApiApi {
+@RequestMapping(value = "/api/v1")
+public interface PeriodosApi {
 
-    Logger log = LoggerFactory.getLogger(ApiApi.class);
+    Logger log = LoggerFactory.getLogger(PeriodosApi.class);
 
     default Optional<ObjectMapper> getObjectMapper() {
         return Optional.empty();
@@ -35,11 +37,11 @@ public interface ApiApi {
         return getRequest().map(r -> r.getHeader("Accept"));
     }
 
-    @ApiOperation(value = "Lista de periodos a procesar", nickname = "periodos", notes = "", response = Periodo.class, tags={ "periodos", })
+    @ApiOperation(value = "Lista de periodos a procesar",  notes = "", response = Periodo.class, tags={ "periodos", })
     @ApiResponses(value = { 
     @ApiResponse(code = 200, message = "Periodo y lista de fechas", response = Periodo.class) })
-    @RequestMapping(value = "/api", produces = { "application/json" }, method = RequestMethod.GET)
-    default ResponseEntity<Periodo> periodos() throws Exception {
+    @RequestMapping(value = "/periodos", produces = { "application/json" }, method = RequestMethod.GET)
+    default ResponseEntity<Periodo> getPeriodos() throws ApiException {
         if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {

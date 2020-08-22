@@ -11,12 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hossman.periodos.cliente.PeriodoRestClient;
+import com.hossman.periodos.connector.ClienteRest;
+import com.hossman.periodos.swagger.codegen.constants.ApiConstants;
 import com.hossman.periodos.swagger.codegen.exception.ApiException;
 import com.hossman.periodos.swagger.codegen.exception.ClienteRestException;
 import com.hossman.periodos.swagger.codegen.exception.ServiceException;
 import com.hossman.periodos.swagger.codegen.model.Periodo;
-import com.hossman.periodos.utils.ApiConstants;
 import com.hossman.periodos.utils.FechaUtil;
 
 
@@ -26,9 +26,9 @@ public class PeriodosServiceImpl implements PeriodosService{
 	Logger log = LoggerFactory.getLogger(PeriodosServiceImpl.class);
 
 	/***
-	 *  @author Hossman Escobar (H.E)
-	 *  @param Periodo = objeto que se le quieren asignar las fechas faltantes
-	 *  @return periodo = el mismo objeto de entrada con las fechas faltantes asignadas
+	 *  @author Hossman Escobar (H.E).
+	 *  @param Periodo = objeto que se le quieren asignar las fechas faltantes.
+	 *  @return periodo = el mismo objeto de entrada con las fechas faltantes asignadas.
 
 	 * Asigna las fechas faltantes al objeto periodo y lo retorna
 	 */
@@ -37,7 +37,7 @@ public class PeriodosServiceImpl implements PeriodosService{
 
 		final int MESES_A_SUMAR = 1; /*H.E en este caso solo tratamos meses a sumar*/
 
-		/*H.E: Saco las fechas que me dio GDD, para que asi solo queden las faltantes,  TODAS_LAS_FECHAS - FECHAS_GDD = FECHAS_FALTANTES */
+		/*H.E: Saco las fechas que me dio GDD, para que asi solo queden las faltantes, aplicando teoria de conjuntos:  TODAS_LAS_FECHAS - FECHAS_GDD = FECHAS_FALTANTES */
 		List<LocalDate> fechasGeneradasDeInicioAfin = FechaUtil.generadorDeFechasMeses(periodo.getFechaCreacion(), periodo.getFechaFin(), MESES_A_SUMAR);
 
 		/*HE Orden de complejidad (n) */
@@ -52,9 +52,9 @@ public class PeriodosServiceImpl implements PeriodosService{
 	}
 	
 	/***
-	 *  @author Hossman Escobar (H.E)
-	 *  @param objectMapper = objectMapper a utilizar
-	 *  @return env = Enviroment del restcontroller
+	 *  @author Hossman Escobar (H.E).
+	 *  @param objectMapper = objectMapper a utilizar.
+	 *  @return env = Enviroment del restcontroller.
 
 	 * Abre la conexion a la apiRest y mapea el resultado a un objeto del modelo de esta api
 	 * @throws ApiException 
@@ -64,17 +64,15 @@ public class PeriodosServiceImpl implements PeriodosService{
 		Periodo periodo = null;
 		
 		try {
-			PeriodoRestClient con = new PeriodoRestClient(env);			
-			/*H.E: Abro conexion a la api externa */
+			ClienteRest con = new ClienteRest(env);			
+			/*H.E: Conexion a la api externa */
 			ResponseEntity<String> periodoEntity = con.conectorApiRestExterna(HttpMethod.GET, ApiConstants.API_PERIOD);
 			periodo  = objectMapper.readValue(periodoEntity.getBody(), Periodo.class); /* H.E: Mapeo Respuesta a clase del modelo */	
 			return calculaFechasFaltantes(periodo);
 		} catch (ClienteRestException e) {
-			log.error("Ocurrio un error al consumr el cliente rest", e);
-			throw new ServiceException("Ocurrio un error al consumr el cliente rest");
+			throw new ServiceException("Ocurrio un error al consumr el cliente rest",e);
 		} catch (IOException e) {
-			log.error("Error al usar el mapper de json a java object", e);
-			throw new ServiceException("Error de serialización del objeto");  
+			throw new ServiceException("Error de serialización del objeto",e);  
 		}
 		
 	}

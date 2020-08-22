@@ -5,12 +5,13 @@ import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan(basePackages = { "com.hossman.periodos.swagger", "com.hossman.periodos.swagger.codegen.api",  "com.hossman.periodos.service"})
+@ComponentScan(basePackages = { "com.hossman.periodos.swagger",  "com.hossman.periodos.service"})
 public class Swagger2SpringBoot implements CommandLineRunner {
 
     @Override

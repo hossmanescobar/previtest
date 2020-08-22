@@ -1,8 +1,6 @@
 # Respueestaa Desafio 3 
-#PruebaConflicto
-Branch
 Este proyecto expone un API REST se conecta a otra API REST y entrega la siguiente información:
-Mula
+
 NOTA DE LA SOLUCION: Técnicamente para el conector a la api-periodos debiese haberse creado con un jar distinto que haga de conector, sin embargo, este fue programado simplemente
 en un package distinto para mantener sencilla la prueba.
 
@@ -332,13 +330,13 @@ http://127.0.0.1:8180/periodos/swagger-ui.html#/
 Para consumir el servicio se debe invocar la siguiente URL
 
 ```bash
-curl -X GET --header 'Accept: application/json' 'http://localhost:8180/periodos/api'
+curl -X GET --header 'Accept: application/json' 'http://localhost:8180/periodos/api/v1'
 ```
 
 # Probar con otros clientes
 
 Se puede utilizar SOAP UI o POSTMAN para el envío de la petición del tipo GET configurado el request con los headers 'Accept: application/json'
 
-URL: http://localhost:8180/periodos/api
+URL: http://localhost:8180/periodos/api/v1
 
 
