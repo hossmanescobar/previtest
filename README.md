@@ -1,10 +1,10 @@
-# Respueestaa Desafio 3 
+# Respuesta Desafio 3 
 Este proyecto expone un API REST se conecta a otra API REST y entrega la siguiente información:
 
 NOTA DE LA SOLUCION: Técnicamente para el conector a la api-periodos debiese haberse creado con un jar distinto que haga de conector, sin embargo, este fue programado simplemente
 en un package distinto para mantener sencilla la prueba.
 
-NOTA 11: Como pre-requisito se debe estar ejecutando la API api-periodos-1.0.0. 
+NOTA 1: Como pre-requisito se debe estar ejecutando la API api-periodos-1.0.0. 
 NOTA 2: Se debe configurar en el archivo application.properties, ubicado en los resources del proyecto SpringBootRestApiTestPrevired los siguientes configs (Vienen configurados):
 
 api-periodos-server=http://localhost:
@@ -330,13 +330,13 @@ http://127.0.0.1:8180/periodos/swagger-ui.html#/
 Para consumir el servicio se debe invocar la siguiente URL
 
 ```bash
-curl -X GET --header 'Accept: application/json' 'http://localhost:8180/periodos/api/v1'
+curl -X GET --header 'Accept: application/json' 'http://localhost:8180/api/v1/periodos'
 ```
 
 # Probar con otros clientes
 
 Se puede utilizar SOAP UI o POSTMAN para el envío de la petición del tipo GET configurado el request con los headers 'Accept: application/json'
 
-URL: http://localhost:8180/periodos/api/v1
+URL: http://localhost:8180/api/v1/periodos
 
 
